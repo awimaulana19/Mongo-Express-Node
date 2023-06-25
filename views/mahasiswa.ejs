@@ -1,0 +1,37 @@
+<h4 class="mt-5">Daftar Mahasiswa</h4>
+
+<a class="btn btn-primary" href="/mahasiswa/tambah">Tambah</a>
+
+<% if (msg.length !== 0) { %>
+<div class="alert alert-success mt-2" role="alert">
+  <%= msg %>
+</div>
+<% } %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">NIM</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% mahasiswa.forEach((item, i) => { i++ %>
+    <tr>
+      <th scope="row"><%= i++ %></th>
+      <td><%= item.nama %></td>
+      <td><%= item.nim %></td>
+      <td class="d-flex">
+        <a class="btn btn-success me-2" href="/mahasiswa/<%= item.nim %>">Detail</a>
+        <a class="btn btn-info me-2" href="/mahasiswa/edit/<%= item.nim %>">Edit</a>
+        <form method="POST" action="/mahasiswa?_method=DELETE">
+          <input type="hidden" name="nim" value="<%= item.nim %>">
+          <button onclick="confirm('Yakin Untuk Menghapus?')" class="btn btn-danger" type="submit">Hapus</button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

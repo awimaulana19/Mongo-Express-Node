@@ -1,0 +1,9 @@
+<% if (mahasiswa) { %>
+<ul class="mt-3">
+  <li>Nama : <%= mahasiswa.nama %></li>
+  <li>NIM : <%= mahasiswa.nim %></li>
+  <li>Kelas : <%= mahasiswa.kelas %></li>
+</ul>
+<% } else { %>
+    <p>Data Tidak Ditemukan</p>
+<% } %>

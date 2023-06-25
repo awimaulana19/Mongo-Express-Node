@@ -1,0 +1,25 @@
+<% if (typeof errors != 'undefined') { %>
+<div class="alert alert-danger" role="alert">
+  <ul>
+    <% errors.forEach(item => { %>
+        <li><%= item.msg %></li>
+    <% }) %>
+  </ul>
+</div>
+<% } %>
+
+<form action="/mahasiswa" method="post">
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input type="text" class="form-control" id="nama" name="nama" />
+  </div>
+  <div class="mb-3">
+    <label for="nim" class="form-label">Nim</label>
+    <input type="text" class="form-control" id="nim" name="nim" />
+  </div>
+  <div class="mb-3">
+    <label for="kelas" class="form-label">Kelas</label>
+    <input type="text" class="form-control" id="kelas" name="kelas" />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

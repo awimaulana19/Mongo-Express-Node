@@ -1,0 +1,27 @@
+<% if (typeof errors != 'undefined') { %>
+<div class="alert alert-danger" role="alert">
+  <ul>
+    <% errors.forEach(item => { %>
+        <li><%= item.msg %></li>
+    <% }) %>
+  </ul>
+</div>
+<% } %>
+
+<form action="/mahasiswa?_method=PUT" method="post">
+  <input type="hidden" name="_id" value="<%= mahasiswa._id %>">
+  <input type="hidden" name="oldNim" value="<%= mahasiswa.oldNim || mahasiswa.nim %>">
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input type="text" class="form-control" id="nama" name="nama" value="<%= mahasiswa.nama %>" />
+  </div>
+  <div class="mb-3">
+    <label for="nim" class="form-label">Nim</label>
+    <input type="text" class="form-control" id="nim" name="nim" value="<%= mahasiswa.nim %>" />
+  </div>
+  <div class="mb-3">
+    <label for="kelas" class="form-label">Kelas</label>
+    <input type="text" class="form-control" id="kelas" name="kelas" value="<%= mahasiswa.kelas %>" />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
